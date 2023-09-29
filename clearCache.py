@@ -16,6 +16,7 @@ for folder, subfolders, files in os.walk(cache_path):
                 print("No Cookies Found")
         print("Cookies Cleared")
         if re.search('Cach.+',folder):
+            
             for name in os.listdir(folder):
                 file = folder + name
                 if os.path.isfile(file):
