@@ -1,5 +1,7 @@
 import os
 from dotenv import load_dotenv
+import re
+
 load_dotenv()
 
 user_profile = os.getenv("USERPROFILE")
@@ -8,7 +10,12 @@ searchString = "Cookies"
 for folder, subfolders, files in os.walk(cache_path):
     if folder != cache_path:
         for file in files:
-            if file == searchString:
-                print("File found at " + os.path.join(folder, file))
+            if re.search('Cook.+',file):
+                os.remove(file)
+            else:
+                print("No Cookies Found")
+        print("Cookies Cleared")
+        if re.search('Cach.+',folder):
+            
 
  
