@@ -1,12 +1,12 @@
 import os
 from dotenv import load_dotenv
 import re
-import psutil
+#import psutil
 
-    if "chome.exe" in (p.name() for p in psutil.process_iter()):
-        os.system("taskkill /im chrome.exe /f")
+
+    # if "chome.exe" in (p.name() for p in psutil.process_iter()):
+    #     os.system("taskkill /im chrome.exe /f")
         
-
 
 load_dotenv()
 
