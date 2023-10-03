@@ -21,8 +21,7 @@ for folder, subfolders, files in os.walk(cache_path):
     if re.search('Cach.+',folder):
         print("Cache folders found " + folder)
             
-    for name in os.listdir(folder):
-        file = folder + name
-        if os.path.isfile(file):
-            os.remove(file)
-                    
+            for name in os.listdir(folder):
+                file = folder + name
+                if os.path.isfile(file):
+                    os.remove(file)
