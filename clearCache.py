@@ -1,6 +1,12 @@
 import os
 from dotenv import load_dotenv
 import re
+import psutil
+
+    if "chome.exe" in (p.name() for p in psutil.process_iter()):
+        os.system("taskkill /im chrome.exe /f")
+        
+
 
 load_dotenv()
 
@@ -11,14 +17,14 @@ for folder, subfolders, files in os.walk(cache_path):
     if folder != cache_path:
         for file in files:
             if re.search('Cook.+',file):
-                print("Cookies found at " + folder)
+                print("Cookies found at " + file)
                 
                 for name in os.listdir(folder):
                     file = folder + name
                     if os.path.isfile(file):
                             os.remove(file)
-#                    else:
-#                        print("No Cookies Found")
+                    else:
+                       print("No Cookies Found")
 
     if re.search('Cach.+',folder):
         print("Cache folders found " + folder)
