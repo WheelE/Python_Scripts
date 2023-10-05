@@ -11,12 +11,12 @@ import re
 load_dotenv()
 
 user_profile = os.getenv("USERPROFILE")
-cache_path = "rC:\Users\Eric\Desktop\Test"
+cache_path = user_profile +"\\AppData\Local\\Google\\Chrome\\User Data\\Default"
 searchString = "Cookies"
 for folder, subfolders, files in os.walk(cache_path):
     if folder != cache_path:
         for file in files:
-            if re.search('Cook.+',file):
+            if re.search('Cook.',file):
                 print("Cookies found at " + file)
                 
                 if os.path.isfile(file):
@@ -28,6 +28,6 @@ for folder, subfolders, files in os.walk(cache_path):
         print("Cache folders found " + folder)
             
         for name in os.listdir(folder):
-                file = folder + name
+                file = folder + "\\" + name
                 if os.path.isfile(file):
                     os.remove(file)
